@@ -1,0 +1,44 @@
+Salida,Llegada,Duración,Tipo Transbordo,Tarifa,Precio,IdaVuelta
+06:30 h,09:21 h,2 horas 51 minutos,Directo,Básica,"25,0",Ida
+07:30 h,10:42 h,3 horas 12 minutos,Directo,Básico,"40,2",Ida
+08:30 h,11:15 h,2 horas 45 minutos,Directo,Básico,"34,45",Ida
+09:00 h,11:37 h,2 horas 37 minutos,Directo,Básico,"40,7",Ida
+09:30 h,12:37 h,3 horas 7 minutos,Directo,Básico,"34,45",Ida
+10:30 h,13:15 h,2 horas 45 minutos,Directo,Básica,"29,0",Ida
+11:30 h,14:42 h,3 horas 12 minutos,Directo,Básico,"34,45",Ida
+12:30 h,15:40 h,3 horas 10 minutos,Directo,Básico,"34,45",Ida
+13:25 h,16:22 h,2 horas 57 minutos,Directo,Básico,"80,45",Ida
+15:30 h,18:42 h,3 horas 12 minutos,Directo,Básica,"49,0",Ida
+16:30 h,19:15 h,2 horas 45 minutos,Directo,Básico,"68,95",Ida
+17:30 h,20:42 h,3 horas 12 minutos,Directo,Básica,"35,0",Ida
+18:30 h,21:20 h,2 horas 50 minutos,Directo,Básico,"80,45",Ida
+19:30 h,22:44 h,3 horas 14 minutos,Directo,Básica,"35,0",Ida
+20:30 h,23:50 h,3 horas 20 minutos,Directo,Básico,"45,95",Ida
+05:40 h,08:25 h,2 horas 45 minutos,Directo,Básico,"103,4",Vuelta
+05:50 h,09:10 h,3 horas 20 minutos,Directo,Básico,"57,45",Vuelta
+06:20 h,08:50 h,2 horas 30 minutos,Directo,Básico,"67,8",Vuelta
+06:35 h,09:20 h,2 horas 45 minutos,Directo,Básica,"45,0",Vuelta
+07:00 h,09:30 h,2 horas 30 minutos,Directo,Básico,"67,8",Vuelta
+07:32 h,10:10 h,2 horas 38 minutos,Directo,Básico,"135,6",Vuelta
+08:00 h,11:12 h,3 horas 12 minutos,Directo,Básico,"57,45",Vuelta
+08:25 h,10:55 h,2 horas 30 minutos,Directo,Básico,"81,35",Vuelta
+08:30 h,18:09 h,9 horas 39 minutos,Directo,Adulto ida,"43,25",Vuelta
+08:30 h,18:09 h,9 horas 39 minutos,Directo,Ida y Vuelta,"34,6",Vuelta
+09:00 h,11:45 h,2 horas 45 minutos,Directo,Básico,"103,4",Vuelta
+10:00 h,13:17 h,3 horas 17 minutos,Directo,Básica,"39,0",Vuelta
+11:00 h,13:45 h,2 horas 45 minutos,Directo,Básico,"34,45",Vuelta
+12:00 h,15:12 h,3 horas 12 minutos,Directo,Básico,"40,2",Vuelta
+12:50 h,15:45 h,2 horas 55 minutos,Directo,Básico,"57,45",Vuelta
+13:25 h,15:55 h,2 horas 30 minutos,Directo,Básico,"47,45",Vuelta
+14:00 h,17:12 h,3 horas 12 minutos,Directo,Básica,"45,0",Vuelta
+15:00 h,17:45 h,2 horas 45 minutos,Directo,Básico,"45,95",Vuelta
+15:25 h,17:55 h,2 horas 30 minutos,Directo,Básico,"47,45",Vuelta
+16:00 h,19:12 h,3 horas 12 minutos,Directo,Básico,"91,9",Vuelta
+16:25 h,18:55 h,2 horas 30 minutos,Directo,Básico,"67,8",Vuelta
+17:00 h,19:45 h,2 horas 45 minutos,Directo,Básico,"45,95",Vuelta
+17:25 h,19:55 h,2 horas 30 minutos,Directo,Básico,"47,45",Vuelta
+18:00 h,21:12 h,3 horas 12 minutos,Directo,Básico,"45,95",Vuelta
+18:25 h,20:55 h,2 horas 30 minutos,Directo,Básico,"47,45",Vuelta
+18:40 h,21:45 h,3 horas 5 minutos,Directo,Básico,"34,45",Vuelta
+20:00 h,23:12 h,3 horas 12 minutos,Directo,Básica,"29,0",Vuelta
+21:00 h,23:46 h,2 horas 46 minutos,Directo,Básico,"34,45",Vuelta
