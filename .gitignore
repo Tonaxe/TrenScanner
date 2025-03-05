@@ -1,2 +1,13 @@
 TrenScannerSPA/node_modules
 TrenScannerSPA/.angular/cache
+TrenScannerAPI/TrenScannerAPI/.vs
+TrenScannerAPI/TrenScannerAPI/DavxeShop.Api/bin
+TrenScannerAPI/TrenScannerAPI/DavxeShop.Api/obj
+TrenScannerAPI/TrenScannerAPI/DavxeShop.Library.Test/bin
+TrenScannerAPI/TrenScannerAPI/DavxeShop.Library.Test/obj
+TrenScannerAPI/TrenScannerAPI/DavxeShop.Library/bin
+TrenScannerAPI/TrenScannerAPI/DavxeShop.Library/obj
+TrenScannerAPI/TrenScannerAPI/DavxeShop.Models/bin
+TrenScannerAPI/TrenScannerAPI/DavxeShop.Models/obj
+TrenScannerAPI/TrenScannerAPI/DavxeShop.Persistance/bin
+TrenScannerAPI/TrenScannerAPI/DavxeShop.Persistance/obj
