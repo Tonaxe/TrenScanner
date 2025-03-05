@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DavxeShop.Library.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9570f601ea97f0891bf9cb82209a533254ba73be")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b055a525716f1c12f2eb765932533fb317a8f36")]
 [assembly: System.Reflection.AssemblyProductAttribute("DavxeShop.Library.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DavxeShop.Library.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

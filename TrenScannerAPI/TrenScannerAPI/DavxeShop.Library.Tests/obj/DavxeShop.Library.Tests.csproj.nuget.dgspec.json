@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library.Tests\\DavxeShop.Library.Tests.csproj": {}
+    "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library.Tests\\DavxeShop.Library.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library.Tests\\DavxeShop.Library.Tests.csproj": {
+    "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library.Tests\\DavxeShop.Library.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library.Tests\\DavxeShop.Library.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library.Tests\\DavxeShop.Library.Tests.csproj",
         "projectName": "DavxeShop.Library.Tests",
-        "projectPath": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library.Tests\\DavxeShop.Library.Tests.csproj",
-        "packagesPath": "C:\\Users\\yassi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library.Tests\\obj\\",
+        "projectPath": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library.Tests\\DavxeShop.Library.Tests.csproj",
+        "packagesPath": "C:\\Users\\Tonaxe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yassi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Tonaxe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library\\DavxeShop.Library.csproj": {
-                "projectPath": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library\\DavxeShop.Library.csproj"
+              "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library\\DavxeShop.Library.csproj": {
+                "projectPath": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library\\DavxeShop.Library.csproj"
               }
             }
           }
@@ -83,21 +83,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library\\DavxeShop.Library.csproj": {
+    "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library\\DavxeShop.Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library\\DavxeShop.Library.csproj",
+        "projectUniqueName": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library\\DavxeShop.Library.csproj",
         "projectName": "DavxeShop.Library",
-        "projectPath": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library\\DavxeShop.Library.csproj",
-        "packagesPath": "C:\\Users\\yassi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library\\obj\\",
+        "projectPath": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library\\DavxeShop.Library.csproj",
+        "packagesPath": "C:\\Users\\Tonaxe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yassi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Tonaxe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -112,11 +112,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj": {
-                "projectPath": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj"
+              "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj": {
+                "projectPath": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj"
               },
-              "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Persistance\\DavxeShop.Persistance.csproj": {
-                "projectPath": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Persistance\\DavxeShop.Persistance.csproj"
+              "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Persistance\\DavxeShop.Persistance.csproj": {
+                "projectPath": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Persistance\\DavxeShop.Persistance.csproj"
               }
             }
           }
@@ -161,21 +161,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj": {
+    "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj",
         "projectName": "DavxeShop.Models",
-        "projectPath": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj",
-        "packagesPath": "C:\\Users\\yassi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\obj\\",
+        "projectPath": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj",
+        "packagesPath": "C:\\Users\\Tonaxe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yassi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Tonaxe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -222,21 +222,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Persistance\\DavxeShop.Persistance.csproj": {
+    "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Persistance\\DavxeShop.Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Persistance\\DavxeShop.Persistance.csproj",
+        "projectUniqueName": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Persistance\\DavxeShop.Persistance.csproj",
         "projectName": "DavxeShop.Persistance",
-        "projectPath": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Persistance\\DavxeShop.Persistance.csproj",
-        "packagesPath": "C:\\Users\\yassi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Persistance\\obj\\",
+        "projectPath": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Persistance\\DavxeShop.Persistance.csproj",
+        "packagesPath": "C:\\Users\\Tonaxe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Persistance\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yassi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Tonaxe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -251,8 +251,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj": {
-                "projectPath": "C:\\Users\\yassi\\Desktop\\DAW\\TrenScannerS\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj"
+              "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj": {
+                "projectPath": "C:\\Users\\Tonaxe\\Desktop\\TrenScanner\\TrenScannerAPI\\TrenScannerAPI\\DavxeShop.Models\\DavxeShop.Models.csproj"
               }
             }
           }
@@ -299,7 +299,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

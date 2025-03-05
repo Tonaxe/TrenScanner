@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\DavxeShop.Api.props" />
-</Project>

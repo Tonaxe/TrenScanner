@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DavxeShop.Library.Tests
-build_property.ProjectDir = C:\Users\yassi\Desktop\DAW\TrenScannerS\TrenScannerAPI\TrenScannerAPI\DavxeShop.Library.Tests\
+build_property.ProjectDir = C:\Users\Tonaxe\Desktop\TrenScanner\TrenScannerAPI\TrenScannerAPI\DavxeShop.Library.Tests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
