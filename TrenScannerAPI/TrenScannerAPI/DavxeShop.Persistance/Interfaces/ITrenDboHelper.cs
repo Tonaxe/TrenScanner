@@ -2,6 +2,6 @@
 {
     public interface ITrenDboHelper
     {
-        Task<int> GetNextTandaAsync();
+        int GetNextTanda();
     }
 }

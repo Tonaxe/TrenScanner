@@ -4,22 +4,23 @@ using CsvHelper.Configuration;
 using DavxeShop.Library.Services.Interfaces;
 using DavxeShop.Models;
 using DavxeShop.Persistance;
+using DavxeShop.Persistance.Interfaces;
 
 namespace DavxeShop.Library.Services
 {
     public class CSVProcessorService : ICSVProcessorService
     {
         private readonly TrenScannerContext _context;
-        private readonly TrenDboHelper _trenDboHelper;
+        private readonly ITrenDboHelper  _trenDboHelper;
 
-        public CSVProcessorService(TrenScannerContext context, TrenDboHelper trenDboHelper)
+        public CSVProcessorService(TrenScannerContext context, ITrenDboHelper trenDboHelper)
         {
             _context = context;
             _trenDboHelper = trenDboHelper;
 
         }
 
-        public async Task ImportarTrenesDesdeCsv()
+        public async Task ImportarTrenesDesdeCsv(TrenData trenData)
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
@@ -35,7 +36,7 @@ namespace DavxeShop.Library.Services
 
                 var trenes = new List<TrenDbData>();
 
-                int nextTanda = await _trenDboHelper.GetNextTandaAsync();
+                int nextTanda = _trenDboHelper.GetNextTanda();
 
                 while (csv.Read())
                 {
@@ -48,7 +49,8 @@ namespace DavxeShop.Library.Services
                         Tarifa = csv.GetField<string>("Tarifa"),
                         Precio = (float)Convert.ToDecimal(csv.GetField<string>("Precio").Replace(".", ","), CultureInfo.InvariantCulture),
                         IdaVuelta = csv.GetField<string>("IdaVuelta").ToLower() == "ida" ? 0 : 1,
-                        Tanda = nextTanda
+                        Tanda = nextTanda,
+                        Fecha = trenData.DepartureDate + "/" + trenData.ReturnDate,
                     };
 
                     trenes.Add(tren);

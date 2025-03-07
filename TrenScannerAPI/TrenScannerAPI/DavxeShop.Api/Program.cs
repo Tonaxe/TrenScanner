@@ -1,6 +1,7 @@
 using DavxeShop.Library.Services;
 using DavxeShop.Library.Services.Interfaces;
 using DavxeShop.Persistance;
+using DavxeShop.Persistance.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,7 @@ builder.Services.AddCors(options =>
 });
 builder.Services.AddTransient<ISeleniumService, SeleniumService>();
 builder.Services.AddTransient<ICSVProcessorService, CSVProcessorService>();
+builder.Services.AddTransient<ITrenDboHelper, TrenDboHelper>();
 builder.Services.AddDbContext<TrenScannerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
