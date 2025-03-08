@@ -10,18 +10,21 @@ namespace DavxeShop.Api.Controller
     {
         private readonly ISeleniumService _seleniumService;
         private readonly ICSVProcessorService _csvProcessorService;
-        public ValuesController(ISeleniumService seleniumScript, ICSVProcessorService csvProcessorService)
+        private readonly IUserService _userService;
+
+        public ValuesController(ISeleniumService seleniumScript, ICSVProcessorService csvProcessorService, IUserService userService)
         {
             _seleniumService = seleniumScript;
             _csvProcessorService = csvProcessorService;
+            _userService = userService;
         }
 
         [HttpPost("TrenData")]
-        public IActionResult PostFlightData([FromBody] TrenData trenData)
+        public IActionResult PostTrenData([FromBody] TrenData trenData)
         {
             if (trenData == null)
             {
-                return BadRequest("Los datos del vuelo son inválidos.");
+                return BadRequest("Los datos del tren son inválidos.");
             }
 
             _seleniumService.GenerateSeleniumScript(trenData);
@@ -29,8 +32,48 @@ namespace DavxeShop.Api.Controller
 
             return Ok(new
             {
-                message = "Datos de vuelo recibidos correctamente",
+                message = "Datos scrapeados y añadidos en la base de datos.",
             });
+        }
+
+        [HttpPost("UserData")]
+        public IActionResult PostUserData([FromBody] UserData userData)
+        {
+            if (userData == null)
+            {
+                return BadRequest("Los datos del usuario son inválidos.");
+            }
+
+            _userService.RegisterUser(userData);
+
+            return Ok(new
+            {
+                message = "Usuario añadido correctamente.",
+            });
+        }
+
+        [HttpPost("GetUser")]
+        public IActionResult GetUser([FromBody] string user)
+        {
+            if (string.IsNullOrEmpty(user))
+            {
+                return BadRequest("El correo del usuario es inválido.");
+            }
+
+            var userExists = _userService.GetUser(user);
+
+            if (userExists)
+            {
+                var token = _userService.GenerateJwtToken(user);
+
+                _userService.SaveToken(user, token);
+
+                return Ok(new { message = "true", token = token });
+            }
+            else
+            {
+                return NotFound(new { message = "false" });
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from '../services/api.service';
+import { UserRegister } from '../models/userRegister.model';
 
 @Component({
   standalone: false,
@@ -11,8 +13,9 @@ import { Router } from '@angular/router';
 export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private apiService: ApiService) {
     this.registerForm = this.fb.group({
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required, this.passwordMatchValidator.bind(this)]]
@@ -28,12 +31,24 @@ export class RegistrationComponent implements OnInit {
     return null;
   }
 
+  
   onSubmit(): void {
+
+    const userRegister: UserRegister = {
+            nombre : this.registerForm.value.name,
+            correo : this.registerForm.value.email,
+            contraseña : this.registerForm.value.password,
+          };
+
     if (this.registerForm.valid) {
-      console.log('Registration successful');
-      this.router.navigate(['/login']);
-    } else {
-      console.log('Form is invalid');
+      this.apiService.postUserRegister(userRegister).subscribe(
+        (res) => {
+          this.router.navigate(['/login']);
+        },
+        (error) => {
+          console.log('Form is invalid');
+        }
+      );
     }
   }
 }

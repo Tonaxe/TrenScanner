@@ -24,7 +24,10 @@ import { TrenData } from '../models/trenData.model';
       });
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+      const token = sessionStorage.getItem('token');
+      console.log(token);
+    }
 
     onSubmit(): void {
       
@@ -40,7 +43,7 @@ import { TrenData } from '../models/trenData.model';
 
       console.log(trenData);
       
-      this.apiService.getTrainsOfers(trenData).subscribe(
+      this.apiService.postTrainsRoutes(trenData).subscribe(
         (res) => {
         },
         (error) => {

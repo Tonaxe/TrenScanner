@@ -20,6 +20,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddTransient<ISeleniumService, SeleniumService>();
 builder.Services.AddTransient<ICSVProcessorService, CSVProcessorService>();
 builder.Services.AddTransient<ITrenDboHelper, TrenDboHelper>();
+builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddDbContextFactory<TrenScannerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );

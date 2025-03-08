@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TrenData } from '../models/trenData.model';
+import { UserRegister } from '../models/userRegister.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,17 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getTrainsOfers(trenData: TrenData): Observable<any> {
+  postTrainsRoutes(trenData: TrenData): Observable<any> {
     return this.http.post(`${this.baseUrl}api/TrenData`, trenData);
   }
+
+  postUserRegister(userRegister: UserRegister): Observable<any> {
+    return this.http.post(`${this.baseUrl}api/UserData`, userRegister);
+  }
+
+  getUser(userEmail: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}api/GetUser`, JSON.stringify(userEmail), {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }   
 }

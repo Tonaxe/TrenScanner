@@ -8,7 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="33.0.1" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.6.1" />
     <PackageReference Include="NUnit" Version="4.2.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.6.1" />
   </ItemGroup>
 
   <ItemGroup>
