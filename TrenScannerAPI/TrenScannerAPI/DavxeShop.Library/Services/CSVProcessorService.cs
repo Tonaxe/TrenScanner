@@ -5,19 +5,19 @@ using DavxeShop.Library.Services.Interfaces;
 using DavxeShop.Models;
 using DavxeShop.Persistance;
 using DavxeShop.Persistance.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DavxeShop.Library.Services
 {
     public class CSVProcessorService : ICSVProcessorService
     {
-        private readonly TrenScannerContext _context;
-        private readonly ITrenDboHelper  _trenDboHelper;
+        private readonly IDbContextFactory<TrenScannerContext> _contextFactory;
+        private readonly ITrenDboHelper _trenDboHelper;
 
-        public CSVProcessorService(TrenScannerContext context, ITrenDboHelper trenDboHelper)
+        public CSVProcessorService(IDbContextFactory<TrenScannerContext> contextFactory, ITrenDboHelper trenDboHelper)
         {
-            _context = context;
+            _contextFactory = contextFactory;
             _trenDboHelper = trenDboHelper;
-
         }
 
         public async Task ImportarTrenesDesdeCsv(TrenData trenData)
@@ -35,11 +35,21 @@ namespace DavxeShop.Library.Services
                 csv.ReadHeader();
 
                 var trenes = new List<TrenDbData>();
-
                 int nextTanda = _trenDboHelper.GetNextTanda();
 
                 while (csv.Read())
                 {
+                    var precioStr = csv.GetField<string>("Precio").Replace(",", ".");
+                    decimal precio;
+                    try
+                    {
+                        precio = Math.Round(Convert.ToDecimal(precioStr, CultureInfo.InvariantCulture), 2);
+                    }
+                    catch (Exception ex)
+                    {
+                        precio = 0.00m;
+                    }
+
                     var tren = new TrenDbData
                     {
                         Salida = csv.GetField<string>("Salida"),
@@ -47,7 +57,7 @@ namespace DavxeShop.Library.Services
                         Duracion = csv.GetField<string>("Duración"),
                         Tipo_Transbordo = csv.GetField<string>("Tipo Transbordo"),
                         Tarifa = csv.GetField<string>("Tarifa"),
-                        Precio = (float)Convert.ToDecimal(csv.GetField<string>("Precio").Replace(".", ","), CultureInfo.InvariantCulture),
+                        Precio = precio,
                         IdaVuelta = csv.GetField<string>("IdaVuelta").ToLower() == "ida" ? 0 : 1,
                         Tanda = nextTanda,
                         Fecha = trenData.DepartureDate + "/" + trenData.ReturnDate,
@@ -56,8 +66,17 @@ namespace DavxeShop.Library.Services
                     trenes.Add(tren);
                 }
 
-                _context.Trenes.AddRange(trenes);
-                await _context.SaveChangesAsync();
+                await using var context = _contextFactory.CreateDbContext();
+
+                try
+                {
+                    context.Trenes.AddRange(trenes);
+                    await context.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al guardar los trenes: {ex.Message}");
+                }
             }
         }
     }

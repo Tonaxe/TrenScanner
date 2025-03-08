@@ -25,7 +25,7 @@ namespace DavxeShop.Api.Controller
             }
 
             _seleniumService.GenerateSeleniumScript(trenData);
-            _csvProcessorService.ImportarTrenesDesdeCsv();
+            _csvProcessorService.ImportarTrenesDesdeCsv(trenData);
 
             return Ok(new
             {

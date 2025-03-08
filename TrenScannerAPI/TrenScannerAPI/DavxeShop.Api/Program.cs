@@ -11,18 +11,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend",
-        policy => policy.WithOrigins("http://localhost:4200")
-                         .AllowAnyMethod()
-                         .AllowAnyHeader());
+    options.AddPolicy("AllowFrontend", policy =>
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyMethod()
+              .AllowAnyHeader());
 });
+
 builder.Services.AddTransient<ISeleniumService, SeleniumService>();
 builder.Services.AddTransient<ICSVProcessorService, CSVProcessorService>();
 builder.Services.AddTransient<ITrenDboHelper, TrenDboHelper>();
-builder.Services.AddDbContext<TrenScannerContext>(options =>
+builder.Services.AddDbContextFactory<TrenScannerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
-
 
 var app = builder.Build();
 
@@ -45,4 +45,5 @@ app.UseCors("AllowFrontend");
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
 app.Run();
