@@ -1,0 +1,96 @@
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #2F3061;
+    color: #F7FFF7;
+    font-family: 'Arial', sans-serif;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFE66D;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style-type: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: #F7FFF7;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #6CA6C1;
+}
+
+.nav-menu .active {
+    text-decoration: underline;
+}
+
+.user-info {
+    position: relative;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.user-details {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #F7FFF7;
+    color: #343434;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.user-details button {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #2F3061;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-details button:hover {
+    background-color: #343434;
+}
+
+.user-info .user-details {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 0;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+}

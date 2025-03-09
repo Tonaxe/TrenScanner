@@ -1,0 +1,19 @@
+<header class="app-header">
+    <div class="logo">
+        <span>LOGO</span>
+    </div>
+    <nav class="nav-menu">
+        <ul>
+            <li><a routerLink="/home" routerLinkActive="active">Inicio</a></li>
+        </ul>
+    </nav>
+
+    <div class="user-info">
+        <span (click)="toggleUserInfo()">USER</span>
+        <div class="user-details" *ngIf="isUserInfoVisible">
+            <p><strong>Nombre:</strong> {{ user.name }}</p>
+            <p><strong>Rol:</strong> {{ user.role }}</p>
+            <button (click)="logout()">Cerrar sesión</button>
+        </div>
+    </div>
+</header>

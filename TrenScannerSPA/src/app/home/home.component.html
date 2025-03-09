@@ -1,34 +1,48 @@
-  <div class="home-form-container">
-    <h2>Formulario de Búsqueda de Viaje</h2>
-    <form [formGroup]="homeForm" (ngSubmit)="onSubmit()">
-      <div>
-        <label for="origin">Origen:</label>
-        <input id="origin" formControlName="origin" type="text" placeholder="Ej: Madrid" />
+<div class="home-form-container">
+  <form [formGroup]="homeForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="origin">Origen</label>
+        <input id="origin" formControlName="origin" type="text" placeholder="Selecciona tu origen" />
       </div>
-      <div>
-        <label for="destination">Destino:</label>
-        <input id="destination" formControlName="destination" type="text" placeholder="Ej: Barcelona" />
+      <div class="form-group">
+        <label for="destination">Destino</label>
+        <input id="destination" formControlName="destination" type="text" placeholder="Selecciona tu destino" />
       </div>
-      <div>
-        <label for="departureDate">Fecha de Ida:</label>
+      <div class="form-group">
+        <label for="departureDate">Fecha Ida</label>
         <input id="departureDate" formControlName="departureDate" type="date" />
       </div>
-      <div>
-        <label for="returnDate">Fecha de Vuelta:</label>
+      <div class="form-group">
+        <label for="returnDate">Fecha Vuelta</label>
         <input id="returnDate" formControlName="returnDate" type="date" />
       </div>
-      <div>
-        <label for="adults">Número de adultos:</label>
-        <input id="adults" formControlName="adults" type="number" placeholder="1" min="1" />
+      <div class="form-group passengers">
+        <label for="passengers">Pasajeros</label>
+        <div class="passenger-dropdown">
+          <button type="button" class="dropdown-btn" (click)="toggleDropdown()">
+            {{ selectedPassengersText }}
+          </button>
+          <div class="dropdown-content" *ngIf="isDropdownOpen">
+            <div class="passenger-option">
+              <label>Adultos (+13 años)</label>
+              <input type="number" min="1" [(ngModel)]="adults" (change)="updatePassengers()" />
+            </div>
+            <div class="passenger-option">
+              <label>Niños (0-13 años)</label>
+              <input type="number" min="0" [(ngModel)]="children" (change)="updatePassengers()" />
+            </div>
+            <div class="passenger-option">
+              <label>Bebés (0-3)</label>
+              <input type="number" min="0" [(ngModel)]="infants" (change)="updatePassengers()" />
+            </div>
+            <button type="button" class="done-btn" (click)="toggleDropdown()">Listo</button>
+          </div>
+        </div>
       </div>
-      <div>
-        <label for="children">Número de niños:</label>
-        <input id="children" formControlName="children" type="number" placeholder="0" min="0" />
+      <div class="form-group">
+        <button type="submit" [disabled]="homeForm.invalid">Buscar billete</button>
       </div>
-      <div>
-        <label for="infants">Número de bebes:</label>
-        <input id="infants" formControlName="infants" type="number" placeholder="0" min="0" />
-      </div>
-      <button type="submit" [disabled]="homeForm.invalid">Buscar Viaje</button>
-    </form>
-  </div>
+    </div>
+  </form>
+</div>
