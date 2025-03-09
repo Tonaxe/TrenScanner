@@ -164,3 +164,53 @@ button[type="submit"]:hover {
     flex-direction: column;
   }
 }
+
+.recommended-trains-container {
+  max-width: 1500px;
+  margin: 40px auto 40px auto;
+  margin-top: 100px;
+}
+
+
+.recommended-trains {
+  margin-top: 30px;
+}
+
+.trains-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  grid-auto-rows: minmax(150px, auto);
+}
+
+.train-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+}
+
+.train-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.train-info {
+  padding: 10px;
+}
+
+.train-info p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.train-info strong {
+  font-size: 16px;
+  color: #333;
+}

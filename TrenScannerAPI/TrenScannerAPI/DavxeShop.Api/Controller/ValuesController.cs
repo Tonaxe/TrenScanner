@@ -10,13 +10,15 @@ namespace DavxeShop.Api.Controller
     {
         private readonly ISeleniumService _seleniumService;
         private readonly ICSVProcessorService _csvProcessorService;
+        private readonly ITrenService _trenService;
         private readonly IUserService _userService;
 
-        public ValuesController(ISeleniumService seleniumScript, ICSVProcessorService csvProcessorService, IUserService userService)
+        public ValuesController(ISeleniumService seleniumScript, ICSVProcessorService csvProcessorService, IUserService userService, ITrenService trenService)
         {
             _seleniumService = seleniumScript;
             _csvProcessorService = csvProcessorService;
             _userService = userService;
+            _trenService = trenService;
         }
 
         [HttpPost("TrenData")]
@@ -74,6 +76,19 @@ namespace DavxeShop.Api.Controller
             {
                 return NotFound(new { message = "false" });
             }
+        }
+
+        [HttpGet("GetRecomendedTrains")]
+        public IActionResult GetRecomendedTrains()
+        {
+            var recommendedTrains = _trenService.GetRecomendedTrains();
+
+            if (recommendedTrains == null || !recommendedTrains.Any())
+            {
+                return NotFound("No recommended trains found");
+            }
+
+            return Ok(recommendedTrains);
         }
     }
 }

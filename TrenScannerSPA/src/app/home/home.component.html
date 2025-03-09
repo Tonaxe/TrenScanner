@@ -46,3 +46,20 @@
     </div>
   </form>
 </div>
+
+<div class="recommended-trains-container">
+  <div *ngIf="trains.length > 0" class="recommended-trains">
+    <div class="trains-grid">
+      <div *ngFor="let train of trains" class="train-card">
+        <img [src]="getTrainImage(train.destino)" class="train-image">
+        <div class="train-info">
+          <p><strong>Trayectoria:</strong> {{ train.origen }} - {{ train.destino }}</p>
+          <p><strong>Precio:</strong> {{ train.precio }}€</p>
+          <p><strong>Duración:</strong> {{ train.duracion }}</p>
+          <p><strong>Fecha:</strong> {{ train.fecha }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

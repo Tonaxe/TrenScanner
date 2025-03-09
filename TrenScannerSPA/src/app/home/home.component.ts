@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { TrenData } from '../models/trenData.model';
+import { TrenInfo } from '../models/trenInfo.model';
 
 @Component({
   standalone: false,
@@ -11,6 +12,7 @@ import { TrenData } from '../models/trenData.model';
 })
 export class HomeComponent implements OnInit {
   homeForm: FormGroup;
+  trains: TrenInfo[] = [];
   isDropdownOpen = false;
   selectedPassengersText = 'Selecciona los pasajeros';
   adults: number = 1;
@@ -29,6 +31,18 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     const token = sessionStorage.getItem('token');
     console.log(token);
+    this.getRecommendedTrains();
+  }
+
+  getRecommendedTrains(): void {
+    this.apiService.getRecommendedTrains().subscribe(
+      (res) => {
+        this.trains = res;
+      },
+      (error) => {
+        console.error('Error al obtener los trenes recomendados', error);
+      }
+    );
   }
 
   toggleDropdown(): void {
@@ -39,6 +53,10 @@ export class HomeComponent implements OnInit {
     this.selectedPassengersText = `Adultos: ${this.adults}, Niños: ${this.children}, Bebés: ${this.infants}`;
   }
 
+  getTrainImage(destino: string): string {
+    return `assets/images/${destino}.jpg`;
+  }  
+  
   onSubmit(): void {
     const trenData: TrenData = {
       origin: this.homeForm.value.origin,

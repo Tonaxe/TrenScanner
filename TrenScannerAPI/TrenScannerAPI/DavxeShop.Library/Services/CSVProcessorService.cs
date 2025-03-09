@@ -52,6 +52,8 @@ namespace DavxeShop.Library.Services
 
                     var tren = new TrenDbData
                     {
+                        Origen = trenData.Origin,
+                        Destino = trenData.Destination,
                         Salida = csv.GetField<string>("Salida"),
                         Llegada = csv.GetField<string>("Llegada"),
                         Duracion = csv.GetField<string>("Duración"),

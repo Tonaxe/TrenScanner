@@ -3,6 +3,8 @@
     public class TrenDbData
     {
         public int Id { get; set; }
+        public string Origen { get; set; }
+        public string Destino { get; set; }
         public string Salida { get; set; }
         public string Llegada { get; set; }
         public string Duracion { get; set; }

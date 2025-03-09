@@ -69,5 +69,10 @@ namespace DavxeShop.Persistance
                 return false;
             }
         }
+
+        public List<TrenDbData> GetAllTrenes()
+        {
+            return _context.Trenes.ToList();
+        }
     }
 }
