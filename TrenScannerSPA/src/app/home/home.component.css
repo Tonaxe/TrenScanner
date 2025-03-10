@@ -203,6 +203,7 @@ button[type="submit"]:hover {
 
 .train-info {
   padding: 10px;
+  font-family: Arial;
 }
 
 .train-info p {
