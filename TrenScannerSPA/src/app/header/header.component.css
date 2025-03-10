@@ -54,10 +54,14 @@
     right: 0;
     background-color: #F7FFF7;
     color: #343434;
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: none;
+    max-width: 1400px;
+    width: auto;
+    min-width: fit-content;
+    white-space: nowrap;
 }
 
 .user-details button {

@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
     this.apiService.getRecommendedTrains().subscribe(
       (res) => {
         this.trains = res;
+        this.parseDate(this.trains);
       },
       (error) => {
         console.error('Error al obtener los trenes recomendados', error);
@@ -56,7 +57,20 @@ export class HomeComponent implements OnInit {
   getTrainImage(destino: string): string {
     return `assets/images/${destino}.jpg`;
   }  
-  
+
+  parseDate(trenInfo: TrenInfo[]): TrenInfo[] {
+    trenInfo.forEach(tren => {
+        if (tren.fecha) {
+            const [startDate, endDate] = tren.fecha.split('/').map(date => 
+                new Date(date).toLocaleDateString('es-ES')
+            );
+            tren.fecha = `${startDate} - ${endDate}`;
+        }
+    });
+
+    return trenInfo;
+  }
+
   onSubmit(): void {
     const trenData: TrenData = {
       origin: this.homeForm.value.origin,

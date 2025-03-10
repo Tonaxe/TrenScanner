@@ -28,7 +28,8 @@ namespace DavxeShop.Library.Services
                 HasHeaderRecord = true
             };
 
-            using (var reader = new StreamReader(@"C:\Users\yassi\Desktop\DAW\TrenScannerS\scraperDatos.csv"))
+            //using (var reader = new StreamReader(@"C:\Users\yassi\Desktop\DAW\TrenScannerS\scraperDatos.csv"))
+            using (var reader = new StreamReader(@"C:\Users\Tonaxe\Desktop\TrenScanner\scraperDatos.csv"))
             using (var csv = new CsvReader(reader, config))
             {
                 csv.Read();

@@ -10,9 +10,11 @@ namespace DavxeShop.Library.Services
         {
             try
             {
-                string pythonScriptPath = @"C:\Users\yassi\Desktop\DAW\TrenScannerS\c#seleniumscript.py";
+                string pythonScriptPath = @"C:\Users\Tonaxe\Desktop\TrenScanner\c#seleniumscript.py";
+                //string pythonScriptPath = @"C:\Users\yassi\Desktop\DAW\TrenScannerS\c#seleniumscript.py";
 
-                string pythonExePath = @"C:\Users\yassi\AppData\Local\Microsoft\WindowsApps\python.exe";
+                string pythonExePath = @"C:\Users\Tonaxe\AppData\Local\Microsoft\WindowsApps\python.exe";
+                //string pythonExePath = @"C:\Users\yassi\AppData\Local\Microsoft\WindowsApps\python.exe";
 
                 string arguments = $"\"{pythonScriptPath}\" " +
                                    $"\"{trenData.Origin}\" " +
