@@ -9,7 +9,7 @@
     </nav>
 
     <div class="user-info">
-        <span (click)="toggleUserInfo()">USER</span>
+        <img src="assets/images/user.png" (click)="toggleUserInfo()">
         <div class="user-details" *ngIf="isUserInfoVisible">
             <p><strong>Nombre:</strong> {{ user.name }}</p>
             <p><strong>Rol:</strong> {{ user.role }}</p>
