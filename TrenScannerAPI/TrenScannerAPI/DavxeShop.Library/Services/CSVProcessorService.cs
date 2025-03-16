@@ -77,7 +77,7 @@ namespace DavxeShop.Library.Services
                             duracion = csv.GetField<string>("Duración"),
                             tipo_transbordo = csv.GetField<string>("Tipo Transbordo"),
                             tanda = nextTanda.ToString(),
-                            fecha = trenData.DepartureDate,
+                            fecha = trenData.DepartureDate + "/" + trenData.ReturnDate,
                             id_ruta = ruta.id_ruta
                         };
 

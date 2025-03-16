@@ -70,9 +70,9 @@ namespace DavxeShop.Persistance
             }
         }
 
-        public List<TrenDbData> GetAllTrenes()
+        public List<ViajesDbData> GetAllTrenes()
         {
-            return _context.Trenes.ToList();
+            return _context.Viajes.Include(v => v.Ruta).Include(v => v.Tarifas).ToList();
         }
     }
 }

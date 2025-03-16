@@ -9,6 +9,6 @@ namespace DavxeShop.Persistance.Interfaces
         UserDbData GetUserDb(string user);
         public void SaveChanges();
         bool AddUser(UserData userData);
-        List<TrenDbData> GetAllTrenes();
+        List<ViajesDbData> GetAllTrenes();
     }
 }

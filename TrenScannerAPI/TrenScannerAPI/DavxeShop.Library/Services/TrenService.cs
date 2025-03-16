@@ -13,25 +13,35 @@ namespace DavxeShop.Library.Services
             _trenDboHelper = trenDboHelper;
         }
 
-        public List<TrenDbData> GetRecomendedTrains()
+        public List<ViajeBasico> GetRecomendedTrains()
         {
             var random = new Random();
             var hoy = DateTime.Today.AddDays(1);
 
             var allTrains = _trenDboHelper.GetAllTrenes()
-                .Where(x =>
+                .Where(v =>
                 {
-                    var fechas = x.Fecha.Split('/');
-                    if (fechas.Length > 0)
+                    var fechas = v.fecha.Split('/');
+                    if (fechas.Length == 2 &&
+                        DateTime.TryParse(fechas[0], out DateTime fechaInicio) &&
+                        DateTime.TryParse(fechas[1], out DateTime fechaFin))
                     {
-                        DateTime fechaInicio;
-                        if (DateTime.TryParse(fechas[0], out fechaInicio))
-                        {
-                            return fechaInicio >= hoy;
-                        }
+                        return fechaInicio >= hoy && fechaFin >= hoy;
                     }
                     return false;
-                }).OrderBy(x => random.Next()).Take(10).ToList();
+                })
+                .OrderBy(x => random.Next())
+                .Take(10)
+                .Select(v => new ViajeBasico
+                {
+                    id_viaje = v.id_viaje,
+                    origen = v.Ruta.origen,
+                    destino = v.Ruta.destino,
+                    duracion = v.duracion,
+                    fecha = v.fecha,
+                    precio = v.Tarifas != null && v.Tarifas.Any() ? v.Tarifas.FirstOrDefault()?.precio ?? 0m : 0m
+                })
+                .ToList();
 
             return allTrains;
         }
