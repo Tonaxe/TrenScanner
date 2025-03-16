@@ -26,16 +26,16 @@
           <div class="dropdown-content" *ngIf="isDropdownOpen">
             <div class="passenger-option">
               <label>Adultos (+13 años)</label>
-              <input type="number" min="1" [(ngModel)]="adults" (change)="updatePassengers()" />
+              <input type="number" min="1" formControlName="adults">
             </div>
             <div class="passenger-option">
               <label>Niños (0-13 años)</label>
-              <input type="number" min="0" [(ngModel)]="children" (change)="updatePassengers()" />
+              <input type="number" min="0" formControlName="children">
             </div>
             <div class="passenger-option">
-              <label>Bebés (0-3)</label>
-              <input type="number" min="0" [(ngModel)]="infants" (change)="updatePassengers()" />
-            </div>
+              <label>Bebés (0-3 años)</label>
+              <input type="number" min="0" formControlName="infants">
+            </div>            
             <button type="button" class="done-btn" (click)="toggleDropdown()">Listo</button>
           </div>
         </div>

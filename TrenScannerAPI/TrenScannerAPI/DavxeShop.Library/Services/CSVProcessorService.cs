@@ -28,15 +28,18 @@ namespace DavxeShop.Library.Services
                 HasHeaderRecord = true
             };
 
-            //using (var reader = new StreamReader(@"C:\Users\yassi\Desktop\DAW\TrenScannerS\scraperDatos.csv"))
-            using (var reader = new StreamReader(@"C:\Users\Tonaxe\Desktop\TrenScanner\scraperDatos.csv"))
+            //using (var reader = new StreamReader(@"C:\Users\Tonaxe\Desktop\TrenScanner\scraperDatos.csv"))
+            using (var reader = new StreamReader(@"C:\Users\yassi\Desktop\DAW\TrenScannerS\scraperDatos.csv"))
             using (var csv = new CsvReader(reader, config))
             {
                 csv.Read();
                 csv.ReadHeader();
 
-                var trenes = new List<TrenDbData>();
+                var viajes = new List<ViajesDbData>();
+                var tarifas = new List<TarifasDbData>();
                 int nextTanda = _trenDboHelper.GetNextTanda();
+
+                await using var context = _contextFactory.CreateDbContext();
 
                 while (csv.Read())
                 {
@@ -46,39 +49,65 @@ namespace DavxeShop.Library.Services
                     {
                         precio = Math.Round(Convert.ToDecimal(precioStr, CultureInfo.InvariantCulture), 2);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         precio = 0.00m;
                     }
 
-                    var tren = new TrenDbData
+                    try
                     {
-                        Origen = trenData.Origin,
-                        Destino = trenData.Destination,
-                        Salida = csv.GetField<string>("Salida"),
-                        Llegada = csv.GetField<string>("Llegada"),
-                        Duracion = csv.GetField<string>("Duración"),
-                        Tipo_Transbordo = csv.GetField<string>("Tipo Transbordo"),
-                        Tarifa = csv.GetField<string>("Tarifa"),
-                        Precio = precio,
-                        IdaVuelta = csv.GetField<string>("IdaVuelta").ToLower() == "ida" ? 0 : 1,
-                        Tanda = nextTanda,
-                        Fecha = trenData.DepartureDate + "/" + trenData.ReturnDate,
-                    };
+                        var ruta = context.Rutas.FirstOrDefault(r => r.origen == trenData.Origin && r.destino == trenData.Destination);
 
-                    trenes.Add(tren);
+                        if (ruta == null)
+                        {
+                            ruta = new RutasDbData
+                            {
+                                origen = trenData.Origin,
+                                destino = trenData.Destination
+                            };
+
+                            context.Rutas.Add(ruta);
+                            await context.SaveChangesAsync();
+                        }
+
+                        var viaje = new ViajesDbData
+                        {
+                            salida = csv.GetField<string>("Salida"),
+                            llegada = csv.GetField<string>("Llegada"),
+                            duracion = csv.GetField<string>("Duración"),
+                            tipo_transbordo = csv.GetField<string>("Tipo Transbordo"),
+                            tanda = nextTanda.ToString(),
+                            fecha = trenData.DepartureDate,
+                            id_ruta = ruta.id_ruta
+                        };
+
+                        context.Viajes.Add(viaje);
+                        await context.SaveChangesAsync();
+
+                        var tarifa = new TarifasDbData
+                        {
+                            id_viaje = viaje.id_viaje,
+                            tarifa = csv.GetField<string>("Tarifa"),
+                            precio = precio,
+                            ida_vuelta = csv.GetField<string>("IdaVuelta").ToLower() == "ida" ? 0.ToString() : 1.ToString(),
+                        };
+
+                        tarifas.Add(tarifa);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error al procesar los datos para la ruta {trenData.Origin},  {trenData.Destination}: {ex.Message}");
+                    }
                 }
-
-                await using var context = _contextFactory.CreateDbContext();
 
                 try
                 {
-                    context.Trenes.AddRange(trenes);
+                    context.Tarifas.AddRange(tarifas);
                     await context.SaveChangesAsync();
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error al guardar los trenes: {ex.Message}");
+                    Console.WriteLine($"Error al guardar los datos: {ex.Message}");
                 }
             }
         }

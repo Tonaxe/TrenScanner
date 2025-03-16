@@ -25,7 +25,11 @@ export class HomeComponent implements OnInit {
       destination: ['', Validators.required],
       departureDate: ['', Validators.required],
       returnDate: ['', Validators.required],
+      adults: [1, Validators.min(1)], 
+      children: [0, Validators.min(0)], 
+      infants: [0, Validators.min(0)], 
     });
+    
   }
 
   ngOnInit(): void {
