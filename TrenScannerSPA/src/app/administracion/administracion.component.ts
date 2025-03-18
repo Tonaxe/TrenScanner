@@ -57,7 +57,6 @@ export class AdministracionComponent implements OnInit {
     const token = sessionStorage.getItem('token');
 
     if (!token) {
-      console.error('No hay token de autenticación');
       return;
     }
 

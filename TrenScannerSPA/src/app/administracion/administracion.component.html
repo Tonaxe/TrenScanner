@@ -5,8 +5,7 @@
             <div class="result-body">
                 <div class="train-info">
                     <span><strong>ID Viaje:</strong> {{ tren.idViaje }}</span>
-                    <span><strong>Origen:</strong> {{ tren.origen }}</span>
-                    <span><strong>Destino:</strong> {{ tren.destino }}</span>
+                    <span><strong>Ruta:</strong> De {{ tren.origen }} a {{ tren.destino }}</span>
                     <span><strong>Duración:</strong> {{ tren.duracion }}</span>
                     <div class="train-price">
                         <strong>{{ tren.precio | currency: 'EUR' }}</strong>

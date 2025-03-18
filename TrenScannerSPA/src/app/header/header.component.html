@@ -10,8 +10,8 @@
         <img src="assets/images/logo.png">
     </div>
 
-    <div class="user-info">
-        <img src="assets/images/user.png" (click)="toggleUserInfo()">
+    <div class="user-info" (click)="toggleUserInfo($event)">
+        <img src="assets/images/user.png">
         <div class="user-details" *ngIf="isUserInfoVisible">
             <p><strong>Nombre:</strong> {{ user.name }}</p>
             <p><strong>Rol:</strong> {{ user.role }}</p>

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 50px;
+    padding: 60px 50px;
     background: linear-gradient(to bottom, #2a2b74, #2F3061);
     color: #F7FFF7;
     font-family: 'Arial', sans-serif;
@@ -44,6 +44,7 @@
 }
 
 .user-info {
+    position: relative;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -65,13 +66,9 @@
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: none;
     width: 200px;
     font-size: 14px;
-}
-
-.user-details p {
-    margin: 5px 0;
+    z-index: 100;
 }
 
 .user-details button {
@@ -89,29 +86,31 @@
     background-color: #343434;
 }
 
-.user-info img:hover+.user-details,
+.user-info img:hover + .user-details,
 .user-info:hover .user-details {
     display: block;
 }
 
 @media (max-width: 768px) {
     .app-header {
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
         padding: 20px 30px;
     }
 
     .nav-menu ul {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 12px;
         padding-left: 0;
         justify-content: center;
         margin-top: 20px;
+        width: 100%;
+        text-align: center;
     }
 
     .logo img {
-        max-width: 120px;
+        max-width: 80px;
+        height: auto;
     }
 
     .nav-menu a {
@@ -136,3 +135,4 @@
         font-size: 14px;
     }
 }
+
