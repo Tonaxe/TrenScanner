@@ -63,10 +63,8 @@ export class AdministracionComponent implements OnInit {
     this.apiService.deleteTrain(id_viaje, token).subscribe(
       (res) => {
         window.location.reload();
-        console.log("asdasdsa");
       },
       (error) => {
-        console.log("gg", error);
       }
     );
   }

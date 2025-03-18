@@ -210,6 +210,16 @@ button[type="submit"]:hover {
   color: #333;
 }
 
+.grafico-container {
+  margin-top: 120px;
+  text-align: center;
+}
+
+.chart-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 @media (max-width: 1024px) {
   .trains-grid {
     grid-template-columns: repeat(3, 1fr);

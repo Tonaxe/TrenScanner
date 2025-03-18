@@ -5,6 +5,8 @@ import { TrenData } from '../models/trenData.model';
 import { TrenInfo } from '../models/trenInfo.model';
 import { CsvInfo } from '../models/csvInfo.model';
 import { Router } from '@angular/router';
+import { ChartData, ChartOptions } from 'chart.js';
+import { TrenInfoExtended } from '../models/trenInfoExtended.model';
 
 @Component({
   standalone: false,
@@ -14,6 +16,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   homeForm: FormGroup;
+  allTrains: TrenInfoExtended[] = [];
   trains: TrenInfo[] = [];
   csvInfo: CsvInfo[] = [];
   isDropdownOpen = false;
@@ -21,6 +24,19 @@ export class HomeComponent implements OnInit {
   adults: number = 1;
   children: number = 0;
   infants: number = 0;
+  chartOptions: ChartOptions = {
+    responsive: true,
+  };
+  chartData: ChartData<'bar'> = {
+    labels: [],
+    datasets: [
+      {
+        data: [],
+        label: 'Promedio de Precio',
+        backgroundColor: '#42A5F5',
+      },
+    ],
+  };
 
   constructor(private fb: FormBuilder, private apiService: ApiService, private router: Router) {
     this.homeForm = this.fb.group({
@@ -37,8 +53,20 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     const token = sessionStorage.getItem('token');
-    console.log(token);
     this.getRecommendedTrains();
+    this.getAllTrains();
+  }
+
+  getAllTrains(): void {
+    this.apiService.getAllTrains().subscribe(
+      (res) => {
+        this.allTrains = res;
+        this.setChartData();
+      },
+      (error) => {
+        console.error('Error al obtener los trenes:', error);
+      }
+    );
   }
 
   getRecommendedTrains(): void {
@@ -46,12 +74,33 @@ export class HomeComponent implements OnInit {
       (res) => {
         this.trains = res;
         this.parseDate(this.trains);
+        this.setChartData();
       },
       (error) => {
         console.error('Error al obtener los trenes recomendados', error);
       }
     );
   }
+
+  setChartData(): void {
+    const groupedTrains = this.allTrains.reduce((acc: { [key: string]: number }, train) => {
+      const route = `${train.origen} - ${train.destino}`;
+      
+      if (acc[route]) {
+        acc[route] += train.precio;
+      } else {
+        acc[route] = train.precio;
+      }
+      
+      return acc;
+    }, {});
+    
+    const labels = Object.keys(groupedTrains);
+    const data = Object.values(groupedTrains);
+    this.chartData.labels = labels;
+    this.chartData.datasets[0].data = data;
+  }  
+  
 
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
@@ -92,7 +141,6 @@ export class HomeComponent implements OnInit {
     this.apiService.postTrainsRoutes(trenData).subscribe(
       (res) => {
         this.csvInfo = res.data.result;
-        console.log(this.csvInfo);
         this.router.navigate(['/results'], { state: { csvInfo: this.csvInfo } });
       },
       (error) => {

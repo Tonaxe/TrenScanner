@@ -46,7 +46,6 @@ export class RegistrationComponent implements OnInit {
           this.router.navigate(['/login']);
         },
         (error) => {
-          console.log('Form is invalid');
         }
       );
     }

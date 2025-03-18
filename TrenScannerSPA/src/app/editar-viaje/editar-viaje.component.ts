@@ -33,9 +33,7 @@ export class EditarViajeComponent implements OnInit {
 
   guardarCambios(): void {
     const token = sessionStorage.getItem('token');
-    console.log(token);
     if (token) {
-      console.log("123");
       this.apiService.updateViaje(this.id_viaje, this.viaje, token).subscribe(
         (res) => {
           this.route.navigate(['administracion']);
@@ -45,7 +43,6 @@ export class EditarViajeComponent implements OnInit {
         }
       );
     } else {
-      console.log('No token found');
     }
   }
 

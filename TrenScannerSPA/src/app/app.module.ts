@@ -14,6 +14,7 @@ import { AdministracionComponent } from './administracion/administracion.compone
 import { EditarViajeComponent } from './editar-viaje/editar-viaje.component';
 import { FooterComponent } from './footer/footer.component';
 import { ResultsComponent } from './results/results.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { ResultsComponent } from './results/results.component';
     AdministracionComponent,
     EditarViajeComponent,
     FooterComponent,
-    ResultsComponent
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +34,7 @@ import { ResultsComponent } from './results/results.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

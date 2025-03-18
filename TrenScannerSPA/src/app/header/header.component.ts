@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';  // Importa el Router para la navegación
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -25,8 +25,6 @@ export class HeaderComponent {
     sessionStorage.removeItem('nombre');
     sessionStorage.removeItem('rol');
     sessionStorage.removeItem('token');
-
-    console.log('Sesión cerrada');
 
     this.router.navigate(['/login']);
   }
