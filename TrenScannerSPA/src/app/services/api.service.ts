@@ -9,6 +9,8 @@ import { TrenInfoExtended } from '../models/trenInfoExtended.model';
 @Injectable({
   providedIn: 'root',
 })
+
+//todos los endpoints de la api
 export class ApiService {
   private baseUrl = 'https://localhost:44355/';
 

@@ -7,6 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './results.component.html',
   styleUrl: './results.component.css'
 })
+
+//al buscar en el formulario y acabado el scrapeo te muestra la informacion obtenida
 export class ResultsComponent {
   @Input() csvInfo: any[] = [];
 

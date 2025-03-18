@@ -14,6 +14,10 @@ import { TrenInfoExtended } from '../models/trenInfoExtended.model';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
+//hay un formulario el cual llama el endpoint para hacer el scrapeo
+//hay otro endpoint para ver 10 viajes random
+//hay una tabla la cual te mira todas las rutas guardadas y te compara precios totales
 export class HomeComponent implements OnInit {
   homeForm: FormGroup;
   allTrains: TrenInfoExtended[] = [];
@@ -64,7 +68,6 @@ export class HomeComponent implements OnInit {
         this.setChartData();
       },
       (error) => {
-        console.error('Error al obtener los trenes:', error);
       }
     );
   }
@@ -77,7 +80,6 @@ export class HomeComponent implements OnInit {
         this.setChartData();
       },
       (error) => {
-        console.error('Error al obtener los trenes recomendados', error);
       }
     );
   }
@@ -144,7 +146,6 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['/results'], { state: { csvInfo: this.csvInfo } });
       },
       (error) => {
-        console.error(error);
       }
     );
   }

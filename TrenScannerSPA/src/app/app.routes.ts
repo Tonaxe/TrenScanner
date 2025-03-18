@@ -7,6 +7,8 @@ import { AdministracionComponent } from './administracion/administracion.compone
 import { EditarViajeComponent } from './editar-viaje/editar-viaje.component';
 import { adminGuard } from './auth.guard';
 
+
+//las rutas definidas con sus verificaciones
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },

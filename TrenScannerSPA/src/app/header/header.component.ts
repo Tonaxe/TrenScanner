@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
+//el header contiene el logo un navbar que tiene el inicio y el panel de administracion (si eres admin)
+//y un icono de usuario para ver tu informacion o cerrar sesion
 export class HeaderComponent {
   isUserInfoVisible = false;
 

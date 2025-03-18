@@ -10,6 +10,8 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+//se puede iniciar session con una cuenta ya registrada y te crea un token JWT
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 

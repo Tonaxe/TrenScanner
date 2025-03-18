@@ -9,6 +9,8 @@ import { TrenInfoExtended } from '../models/trenInfoExtended.model';
   templateUrl: './editar-viaje.component.html',
   styleUrl: './editar-viaje.component.css'
 })
+
+//se puede editar todos los campos de un viaje 
 export class EditarViajeComponent implements OnInit {
   id_viaje!: number;
   viaje: TrenInfoExtended = {} as TrenInfoExtended;
@@ -26,7 +28,6 @@ export class EditarViajeComponent implements OnInit {
         this.viaje = data;
       },
       (error) => {
-        console.error(error);
       }
     );
   }
@@ -39,7 +40,6 @@ export class EditarViajeComponent implements OnInit {
           this.route.navigate(['administracion']);
         },
         (error) => {
-          console.error("Error al actualizar el viaje", error);
         }
       );
     } else {

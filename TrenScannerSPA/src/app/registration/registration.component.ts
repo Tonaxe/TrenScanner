@@ -10,6 +10,8 @@ import { UserRegister } from '../models/userRegister.model';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
+
+//te crea una cuenta y la guarda en db
 export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
 

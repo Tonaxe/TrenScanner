@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
+
+//proceso de autentificacion del token y el rol
 export class AuthService {
   private authenticated = false;
   private userRole: number | null = null;

@@ -9,6 +9,10 @@ import { TrenInfoExtended } from '../models/trenInfoExtended.model';
   templateUrl: './administracion.component.html',
   styleUrls: ['./administracion.component.css']
 })
+
+//hago la llamada de todos los viajes y los muestro en pantalla 
+  //puedo borrar y editar un registro
+  //solo los admins pueden entrar a aqui
 export class AdministracionComponent implements OnInit {
 
   trenes: TrenInfoExtended[] = [];
@@ -27,7 +31,6 @@ export class AdministracionComponent implements OnInit {
         this.cargarPagina(this.paginaActual);
       },
       (error) => {
-        console.error(error);
       }
     );
   }
