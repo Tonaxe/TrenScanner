@@ -159,18 +159,11 @@ button[type="submit"]:hover {
   background-color: #343434;
 }
 
-@media (max-width: 768px) {
-  .form-row {
-    flex-direction: column;
-  }
-}
-
 .recommended-trains-container {
   max-width: 1500px;
   margin: 40px auto 40px auto;
   margin-top: 100px;
 }
-
 
 .recommended-trains {
   margin-top: 30px;
@@ -214,4 +207,40 @@ button[type="submit"]:hover {
 .train-info strong {
   font-size: 16px;
   color: #333;
+}
+
+@media (max-width: 1024px) {
+  .trains-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .trains-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .trains-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .dropdown-content {
+    width: 90%;
+  }
+
+  .dropdown-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .passenger-option input {
+    width: 40px;
+    font-size: 14px;
+  }
 }

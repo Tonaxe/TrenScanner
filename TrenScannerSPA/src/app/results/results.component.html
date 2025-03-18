@@ -1,0 +1,27 @@
+<div *ngIf="csvInfo.length > 0" class="results-wrapper">
+    <h2 class="results-title">Resultados de tu búsqueda</h2>
+    <div class="results-container">
+        <div class="result-card" *ngFor="let tren of csvInfo">
+            <div class="result-header">
+                <span class="departure-time">{{ tren.salida }}</span>
+                <span class="duration">{{ tren.duracion }}</span>
+                <span class="arrival-time">{{ tren.llegada }}</span>
+            </div>
+
+            <div class="result-body">
+                <div class="train-type">
+                    <span>{{ tren.tipoTransbordo }}</span>
+                </div>
+                <div class="ticket-info">
+                    <span class="fare">{{ tren.tarifa }}</span>
+                    <span class="price">Desde <strong>€{{ tren.precio }}</strong></span>
+                </div>
+            </div>
+
+            <div class="result-footer">
+                <span *ngIf="tren.idaVuelta === 'Ida y vuelta'" class="round-trip">🔄 Ida y vuelta</span>
+                <span class="accessibility">♿ Plaza H disponible</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -45,5 +45,12 @@ namespace DavxeShop.Library.Services
 
             return allTrains;
         }
+
+        public List<ViajeSimplificado> GetAllTrains()
+        {
+            var allTrains = _trenDboHelper.GetAllTrenes2().ToList();
+
+            return allTrains;
+        }
     }
 }

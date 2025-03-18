@@ -4,6 +4,6 @@ namespace DavxeShop.Library.Services.Interfaces
 {
     public interface ICSVProcessorService
     {
-        Task ImportarTrenesDesdeCsv(TrenData trenData);
+        Task<List<CsvData>> ImportarTrenesDesdeCsv(TrenData trenData);
     }
 }

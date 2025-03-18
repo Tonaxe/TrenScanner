@@ -35,7 +35,9 @@ h2 {
   font-weight: bold;
 }
 
-.label, input, button {
+.label,
+input,
+button {
   width: 100%;
 }
 

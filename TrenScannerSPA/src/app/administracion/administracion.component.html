@@ -1,0 +1,36 @@
+<div class="results-wrapper">
+    <h2 class="results-title">Listado de Trenes</h2>
+    <div class="results-container">
+        <div *ngFor="let tren of trenesPorPagina" class="result-card">
+            <div class="result-body">
+                <div class="train-info">
+                    <span><strong>ID Viaje:</strong> {{ tren.idViaje }}</span>
+                    <span><strong>Origen:</strong> {{ tren.origen }}</span>
+                    <span><strong>Destino:</strong> {{ tren.destino }}</span>
+                    <span><strong>Duración:</strong> {{ tren.duracion }}</span>
+                    <div class="train-price">
+                        <strong>{{ tren.precio | currency: 'EUR' }}</strong>
+                    </div>
+                </div>
+                <div class="result-actions">
+                    <button class="edit-btn" (click)="editTren(tren.idViaje)">
+                        <i class="fas fa-pencil-alt"></i> Editar
+                    </button>
+                    <button class="delete-btn" (click)="deleteTren(tren.idViaje)">
+                        <i class="fas fa-trash-alt"></i> Borrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pagination">
+        <button (click)="paginaAnterior()" [disabled]="paginaActual === 1">
+            <i class="fas fa-chevron-left"></i> Anterior
+        </button>
+        <span>Página {{ paginaActual }} de {{ (totalTrenes / trenesPorPaginaCount) }}</span>
+        <button (click)="siguientePagina()" [disabled]="paginaActual >= totalTrenes / trenesPorPaginaCount">
+            Siguiente <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</div>

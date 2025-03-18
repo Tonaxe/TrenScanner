@@ -1,12 +1,14 @@
 <header class="app-header">
-    <div class="logo">
-        <span>LOGO</span>
-    </div>
     <nav class="nav-menu">
         <ul>
             <li><a routerLink="/home" routerLinkActive="active">Inicio</a></li>
+            <li><a routerLink="/administracion" routerLinkActive="active">Administración</a></li>
         </ul>
     </nav>
+
+    <div class="logo">
+        <img src="assets/images/logo.png">
+    </div>
 
     <div class="user-info">
         <img src="assets/images/user.png" (click)="toggleUserInfo()">

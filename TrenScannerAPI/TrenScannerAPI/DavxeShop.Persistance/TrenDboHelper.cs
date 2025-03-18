@@ -74,5 +74,29 @@ namespace DavxeShop.Persistance
         {
             return _context.Viajes.Include(v => v.Ruta).Include(v => v.Tarifas).ToList();
         }
+
+        public List<ViajeSimplificado> GetAllTrenes2()
+        {
+            var allTrains = _context.Viajes
+                .Include(v => v.Ruta)
+                .Include(v => v.Tarifas)
+                .Select(v => new ViajeSimplificado
+                {
+                    IdViaje = v.id_viaje,
+                    Salida = v.salida,
+                    Llegada = v.llegada,
+                    Duracion = v.duracion,
+                    TipoTransbordo = v.tipo_transbordo,
+                    Tanda = v.tanda,
+                    Fecha = v.fecha,
+                    IdRuta = v.Ruta.id_ruta,
+                    Origen = v.Ruta.origen,
+                    Destino = v.Ruta.destino,
+                    Tarifa = v.Tarifas.FirstOrDefault().tarifa,
+                    Precio = v.Tarifas.FirstOrDefault().precio
+                }).ToList();
+
+            return allTrains;
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace DavxeShop.Library.Services
             _trenDboHelper = trenDboHelper;
         }
 
-        public async Task ImportarTrenesDesdeCsv(TrenData trenData)
+        public async Task<List<CsvData>> ImportarTrenesDesdeCsv(TrenData trenData)
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
@@ -28,6 +28,7 @@ namespace DavxeShop.Library.Services
                 HasHeaderRecord = true
             };
 
+            var csvDataList = new List<CsvData>();
             //using (var reader = new StreamReader(@"C:\Users\Tonaxe\Desktop\TrenScanner\scraperDatos.csv"))
             using (var reader = new StreamReader(@"C:\Users\yassi\Desktop\DAW\TrenScannerS\scraperDatos.csv"))
             using (var csv = new CsvReader(reader, config))
@@ -53,6 +54,19 @@ namespace DavxeShop.Library.Services
                     {
                         precio = 0.00m;
                     }
+
+                    var data = new CsvData
+                    {
+                        Salida = csv.GetField<string>("Salida"),
+                        Llegada = csv.GetField<string>("Llegada"),
+                        Duracion = csv.GetField<string>("Duración"),
+                        TipoTransbordo = csv.GetField<string>("Tipo Transbordo"),
+                        Tarifa = csv.GetField<string>("Tarifa"),
+                        Precio = precio,
+                        IdaVuelta = csv.GetField<string>("IdaVuelta")
+                    };
+
+                    csvDataList.Add(data);
 
                     try
                     {
@@ -109,6 +123,8 @@ namespace DavxeShop.Library.Services
                 {
                     Console.WriteLine($"Error al guardar los datos: {ex.Message}");
                 }
+
+                return csvDataList;
             }
         }
     }

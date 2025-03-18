@@ -30,11 +30,12 @@ namespace DavxeShop.Api.Controller
             }
 
             _seleniumService.GenerateSeleniumScript(trenData);
-            _csvProcessorService.ImportarTrenesDesdeCsv(trenData);
+            var csvData = _csvProcessorService.ImportarTrenesDesdeCsv(trenData);
 
             return Ok(new
             {
                 message = "Datos scrapeados y añadidos en la base de datos.",
+                data = csvData,
             });
         }
 
@@ -89,6 +90,19 @@ namespace DavxeShop.Api.Controller
             }
 
             return Ok(recommendedTrains);
+        }
+
+        [HttpGet("AllTrains")]
+        public IActionResult GetAllTrains()
+        {
+            var allTrains = _trenService.GetAllTrains();
+
+            if (allTrains == null || !allTrains.Any())
+            {
+                return NotFound("No recommended trains found");
+            }
+
+            return Ok(allTrains);
         }
     }
 }

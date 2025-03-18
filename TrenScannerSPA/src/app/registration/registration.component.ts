@@ -22,7 +22,7 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   passwordMatchValidator(control: any) {
     if (this.registerForm && control.value !== this.registerForm.get('password')?.value) {
@@ -31,14 +31,14 @@ export class RegistrationComponent implements OnInit {
     return null;
   }
 
-  
+
   onSubmit(): void {
 
     const userRegister: UserRegister = {
-            nombre : this.registerForm.value.name,
-            correo : this.registerForm.value.email,
-            contraseña : this.registerForm.value.password,
-          };
+      nombre: this.registerForm.value.name,
+      correo: this.registerForm.value.email,
+      contraseña: this.registerForm.value.password,
+    };
 
     if (this.registerForm.valid) {
       this.apiService.postUserRegister(userRegister).subscribe(

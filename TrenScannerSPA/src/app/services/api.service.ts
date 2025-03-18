@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { TrenData } from '../models/trenData.model';
 import { UserRegister } from '../models/userRegister.model';
 import { TrenInfo } from '../models/trenInfo.model';
+import { TrenInfoExtended } from '../models/trenInfoExtended.model';
 
 @Injectable({
   providedIn: 'root',
@@ -29,5 +30,9 @@ export class ApiService {
 
   getRecommendedTrains(): Observable<TrenInfo[]> {
     return this.http.get<TrenInfo[]>(`${this.baseUrl}api/GetRecomendedTrains`);
+  }
+
+  getAllTrains(): Observable<TrenInfoExtended[]> {
+    return this.http.get<TrenInfoExtended[]>(`${this.baseUrl}api/AllTrains`);
   }
 }
