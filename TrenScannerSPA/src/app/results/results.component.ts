@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -9,11 +9,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 //al buscar en el formulario y acabado el scrapeo te muestra la informacion obtenida
-export class ResultsComponent {
+export class ResultsComponent implements OnInit{
   @Input() csvInfo: any[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     this.csvInfo = navigation?.extras.state?.['csvInfo'] || [];
+  }
+
+  ngOnInit(): void {
+    sessionStorage.removeItem('hasSubmitted');
   }
 }

@@ -143,6 +143,7 @@ export class HomeComponent implements OnInit {
     this.apiService.postTrainsRoutes(trenData).subscribe(
       (res) => {
         this.csvInfo = res.data.result;
+        sessionStorage.setItem('hasSubmitted', 'true');
         this.router.navigate(['/results'], { state: { csvInfo: this.csvInfo } });
       },
       (error) => {

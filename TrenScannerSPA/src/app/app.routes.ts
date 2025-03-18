@@ -6,6 +6,7 @@ import { ResultsComponent } from './results/results.component';
 import { AdministracionComponent } from './administracion/administracion.component';
 import { EditarViajeComponent } from './editar-viaje/editar-viaje.component';
 import { adminGuard } from './auth.guard';
+import { ResultsGuard } from './results.guard';
 
 
 //las rutas definidas con sus verificaciones
@@ -13,8 +14,9 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'home', component: HomeComponent, canActivate: [adminGuard] },
-  { path: 'results', component: ResultsComponent, canActivate: [adminGuard] },
+  { path: 'results', component: ResultsComponent, canActivate: [ResultsGuard] },
   { path: 'administracion', component: AdministracionComponent, canActivate: [adminGuard] },
   { path: 'administracion/editar-viaje/:id', component: EditarViajeComponent, canActivate: [adminGuard] },
-  { path: '', redirectTo: 'login', pathMatch: 'full' }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
