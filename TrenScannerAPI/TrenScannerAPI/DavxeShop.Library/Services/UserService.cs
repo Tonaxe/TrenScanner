@@ -27,7 +27,7 @@ namespace DavxeShop.Library.Services
             return _trenDboHelper.AddUser(userData);
         }
 
-        public bool GetUser(string user)
+        public UserDbData GetUser(string user)
         {
             return _trenDboHelper.GetUser(user);
         }

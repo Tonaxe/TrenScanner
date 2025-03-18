@@ -4,10 +4,11 @@
     align-items: center;
     padding: 60px 50px;
     background: linear-gradient(to bottom, #2a2b74, #2F3061);
-    color: #F7FFF7;
+    color: #F5F5F5;
     font-family: 'Arial', sans-serif;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: relative;
+    margin-bottom: 100px;
 }
 
 .logo {
@@ -28,7 +29,7 @@
 }
 
 .nav-menu a {
-    color: #F7FFF7;
+    color: #F5F5F5;
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
@@ -61,7 +62,7 @@
     position: absolute;
     top: 50px;
     right: 0;
-    background-color: #F7FFF7;
+    background-color: #F5F5F5;
     color: #343434;
     padding: 15px;
     border-radius: 8px;

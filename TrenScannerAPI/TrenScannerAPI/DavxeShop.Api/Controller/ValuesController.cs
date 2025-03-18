@@ -67,13 +67,13 @@ namespace DavxeShop.Api.Controller
 
             var userExists = _userService.GetUser(user);
 
-            if (userExists)
+            if (userExists != null)
             {
                 var token = _userService.GenerateJwtToken(user);
 
                 _userService.SaveToken(user, token);
 
-                return Ok(new { message = "true", token = token });
+                return Ok(new { message = "true", token = token, nombre = userExists.Nombre, rol = userExists.Rol});
             }
             else
             {
@@ -135,11 +135,11 @@ namespace DavxeShop.Api.Controller
 
             if (result)
             {
-                return Ok("Tren eliminado correctamente.");
+                return Ok(new { message = "Tren eliminado correctamente." });
             }
             else
             {
-                return BadRequest("Error al eliminar el tren.");
+                return BadRequest(new { message = "Error al eliminar el tren." });
             }
         }
     }

@@ -2,7 +2,9 @@
     <nav class="nav-menu">
         <ul>
             <li><a routerLink="/home" routerLinkActive="active">Inicio</a></li>
-            <li><a routerLink="/administracion" routerLinkActive="active">Administración</a></li>
+            <li *ngIf="user.role === '1'">
+                <a routerLink="/administracion" routerLinkActive="active">Administración</a>
+            </li>
         </ul>
     </nav>
 
@@ -14,7 +16,7 @@
         <img src="assets/images/user.png">
         <div class="user-details" *ngIf="isUserInfoVisible">
             <p><strong>Nombre:</strong> {{ user.name }}</p>
-            <p><strong>Rol:</strong> {{ user.role }}</p>
+            <p><strong>Rol:</strong> {{ user.role === '1' ? 'Administrador' : 'Usuario' }}</p>
             <button (click)="logout()">Cerrar sesión</button>
         </div>
     </div>

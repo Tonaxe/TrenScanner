@@ -21,11 +21,11 @@ namespace DavxeShop.Persistance
             return maxTanda == 0 ? 1 : maxTanda + 1;
         }
 
-        public bool GetUser(string user)
+        public UserDbData GetUser(string user)
         {
             var userExist = _context.Usuarios.Where(u => u.Correo == user).FirstOrDefault();
 
-            return userExist != null;
+            return userExist;
         }
 
         public UserDbData GetUserDb(string user)

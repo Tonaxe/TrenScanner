@@ -1,0 +1,52 @@
+<div class="editar-viaje-container">
+    <h2>Editar Viaje ID: {{ id_viaje }}</h2>
+
+    <form (ngSubmit)="guardarCambios()">
+        <div class="form-group">
+            <label for="salida">Salida</label>
+            <input type="text" id="salida" [(ngModel)]="viaje.salida" name="salida" required>
+        </div>
+
+        <div class="form-group">
+            <label for="llegada">Llegada</label>
+            <input type="text" id="llegada" [(ngModel)]="viaje.llegada" name="llegada" required>
+        </div>
+
+        <div class="form-group">
+            <label for="duracion">Duración</label>
+            <input type="text" id="duracion" [(ngModel)]="viaje.duracion" name="duracion" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tipoTransbordo">Tipo de Transbordo</label>
+            <input type="text" id="tipoTransbordo" [(ngModel)]="viaje.tipoTransbordo" name="tipoTransbordo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" [(ngModel)]="viaje.fecha" name="fecha" required>
+        </div>
+
+        <div class="form-group">
+            <label for="origen">Origen</label>
+            <input type="text" id="origen" [(ngModel)]="viaje.origen" name="origen" required>
+        </div>
+
+        <div class="form-group">
+            <label for="destino">Destino</label>
+            <input type="text" id="destino" [(ngModel)]="viaje.destino" name="destino" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tarifa">Tarifa</label>
+            <input type="text" id="tarifa" [(ngModel)]="viaje.tarifa" name="tarifa" required>
+        </div>
+
+        <div class="form-group">
+            <label for="precio">Precio (€)</label>
+            <input type="number" id="precio" [(ngModel)]="viaje.precio" name="precio" required>
+        </div>
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</div>

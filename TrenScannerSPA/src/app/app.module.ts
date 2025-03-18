@@ -13,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { ResultsComponent } from './results/results.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdministracionComponent } from './administracion/administracion.component';
+import { EditarViajeComponent } from './editar-viaje/editar-viaje.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AdministracionComponent } from './administracion/administracion.compone
     HeaderComponent,
     ResultsComponent,
     FooterComponent,
-    AdministracionComponent
+    AdministracionComponent,
+    EditarViajeComponent
   ],
   imports: [
     BrowserModule,

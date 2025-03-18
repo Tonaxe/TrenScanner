@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
         (res) => {
           if (res.message === 'true') {
             sessionStorage.setItem('token', res.token);
+            sessionStorage.setItem('nombre', res.nombre);
+            sessionStorage.setItem('rol', res.rol);
             this.router.navigate(['/home']);
           } else {
             console.log('El usuario no existe');

@@ -63,13 +63,15 @@ export class AdministracionComponent implements OnInit {
     this.apiService.deleteTrain(id_viaje, token).subscribe(
       (res) => {
         window.location.reload();
+        console.log("asdasdsa");
       },
       (error) => {
+        console.log("gg", error);
       }
     );
   }
 
   editTren(id_viaje: number): void {
-    console.log('Editar tren con ID:', id_viaje);
+    this.router.navigate(['administracion/editar-viaje', id_viaje]);
   }
 }

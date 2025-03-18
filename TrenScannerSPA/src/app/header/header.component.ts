@@ -1,4 +1,5 @@
-import { Component, ElementRef, Renderer2, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';  // Importa el Router para la navegación
 
 @Component({
   selector: 'app-header',
@@ -6,26 +7,27 @@ import { Component, ElementRef, Renderer2, OnInit, OnDestroy } from '@angular/co
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   isUserInfoVisible = false;
-  user = { name: 'Tonaxe', role: 'Admin' };
 
-  constructor(private elRef: ElementRef, private renderer: Renderer2) {}
+  user = {
+    name: sessionStorage.getItem('nombre'),
+    role: sessionStorage.getItem('rol')
+  };
 
-  ngOnInit() {
-    this.renderer.listen('document', 'click', (event: Event) => {
-      if (!this.elRef.nativeElement.contains(event.target)) {
-        this.isUserInfoVisible = false;
-      }
-    });
-  }
+  constructor(private router: Router) {}
 
   toggleUserInfo(event: Event) {
-    event.stopPropagation();
     this.isUserInfoVisible = !this.isUserInfoVisible;
   }
 
   logout() {
+    sessionStorage.removeItem('nombre');
+    sessionStorage.removeItem('rol');
+    sessionStorage.removeItem('token');
+
     console.log('Sesión cerrada');
+
+    this.router.navigate(['/login']);
   }
 }
