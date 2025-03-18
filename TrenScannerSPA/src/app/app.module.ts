@@ -10,10 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HeaderComponent } from './header/header.component';
-import { ResultsComponent } from './results/results.component';
-import { FooterComponent } from './footer/footer.component';
 import { AdministracionComponent } from './administracion/administracion.component';
 import { EditarViajeComponent } from './editar-viaje/editar-viaje.component';
+import { FooterComponent } from './footer/footer.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
@@ -22,17 +22,17 @@ import { EditarViajeComponent } from './editar-viaje/editar-viaje.component';
     LoginComponent,
     RegistrationComponent,
     HeaderComponent,
-    ResultsComponent,
-    FooterComponent,
     AdministracionComponent,
-    EditarViajeComponent
+    EditarViajeComponent,
+    FooterComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -99,6 +99,41 @@ namespace DavxeShop.Persistance
             return allTrains;
         }
 
+        public UpdateTren GetTrainById(int id)
+        {
+            Console.WriteLine($"Buscando tren con ID: {id}");
+
+            var getTrainById = _context.Viajes
+                .Include(v => v.Ruta)
+                .Include(v => v.Tarifas)
+                .Where(v => v.id_viaje == id)
+                .Select(v => new UpdateTren
+                {
+                    Salida = v.salida,
+                    Llegada = v.llegada,
+                    Duracion = v.duracion,
+                    TipoTransbordo = v.tipo_transbordo,
+                    Fecha = v.fecha,
+                    Origen = v.Ruta.origen,
+                    Destino = v.Ruta.destino,
+                    Tarifa = v.Tarifas.Any() ? v.Tarifas.First().tarifa : null,
+                    Precio = v.Tarifas.Any() ? v.Tarifas.First().precio : 0
+                })
+                .FirstOrDefault();
+
+            if (getTrainById == null)
+            {
+                Console.WriteLine("No se encontró el tren.");
+            }
+            else
+            {
+                Console.WriteLine("Tren encontrado.");
+            }
+
+            return getTrainById;
+        }
+
+
         public ViajesDbData GetTrenById(int id_viaje)
         {
             return _context.Viajes
@@ -113,6 +148,68 @@ namespace DavxeShop.Persistance
 
             _context.Viajes.Remove(tren);
             _context.SaveChanges();
+        }
+
+        public bool UpdateTren(int id, UpdateTren trenInfo)
+        {
+            var rutaExistente = _context.Rutas
+                .FirstOrDefault(r => r.origen == trenInfo.Origen && r.destino == trenInfo.Destino);
+
+            int idRuta;
+            if (rutaExistente != null)
+            {
+                idRuta = rutaExistente.id_ruta;
+            }
+            else
+            {
+                var nuevaRuta = new RutasDbData
+                {
+                    origen = trenInfo.Origen,
+                    destino = trenInfo.Destino
+                };
+
+                _context.Rutas.Add(nuevaRuta);
+                _context.SaveChanges();
+                idRuta = nuevaRuta.id_ruta;
+            }
+
+            var tren = _context.Viajes
+                .Include(v => v.Ruta)
+                .Include(v => v.Tarifas)
+                .FirstOrDefault(v => v.id_viaje == id);
+
+            if (tren == null)
+            {
+                return false;
+            }
+
+            tren.salida = trenInfo.Salida;
+            tren.llegada = trenInfo.Llegada;
+            tren.duracion = trenInfo.Duracion;
+            tren.tipo_transbordo = trenInfo.TipoTransbordo;
+            tren.tanda = GetNextTanda().ToString();
+            tren.fecha = trenInfo.Fecha;
+            tren.id_ruta = idRuta;
+
+            if (tren.Tarifas != null && tren.Tarifas.Any())
+            {
+                var tarifa = tren.Tarifas.FirstOrDefault();
+                if (tarifa != null)
+                {
+                    tarifa.tarifa = trenInfo.Tarifa;
+                    tarifa.precio = trenInfo.Precio;
+                }
+            }
+
+            try
+            {
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

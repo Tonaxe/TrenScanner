@@ -142,5 +142,54 @@ namespace DavxeShop.Api.Controller
                 return BadRequest(new { message = "Error al eliminar el tren." });
             }
         }
+
+        [HttpPut("viajes/{id_viaje}")]
+        public IActionResult UpdateTrain(int id_viaje, [FromBody] UpdateTren viajeInfo, [FromHeader] string Authorization)
+        {
+            if (string.IsNullOrEmpty(Authorization) || !Authorization.StartsWith("Bearer "))
+            {
+                return Unauthorized("Token no proporcionado o inválido.");
+            }
+
+            var token = Authorization.Substring("Bearer ".Length).Trim();
+
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+            if (jwtToken == null)
+            {
+                return Unauthorized("Token inválido.");
+            }
+
+            var username = jwtToken?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrEmpty(username))
+            {
+                return Unauthorized("No se pudo obtener el usuario desde el token.");
+            }
+
+            bool result = _trenService.UpdateTren(id_viaje, viajeInfo);
+
+            if (result)
+            {
+                return Ok(new { message = "Tren actualizado correctamente." });
+            }
+            else
+            {
+                return BadRequest(new { message = "Error al actualizar el tren." });
+            }
+        }
+
+        [HttpGet("viajes/{id_viaje}")]
+        public IActionResult GetTrainById(int id_viaje)
+        {
+            var getTrainById = _trenService.GetTrainById(id_viaje);
+
+            if (getTrainById == null)
+            {
+                return NotFound("No train not found");
+            }
+
+            return Ok(getTrainById);
+        }
     }
 }

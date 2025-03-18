@@ -12,7 +12,7 @@ import { TrenInfoExtended } from '../models/trenInfoExtended.model';
 export class ApiService {
   private baseUrl = 'https://localhost:44355/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   postTrainsRoutes(trenData: TrenData): Observable<any> {
     return this.http.post(`${this.baseUrl}api/TrenData`, trenData);
@@ -26,7 +26,7 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}api/GetUser`, JSON.stringify(userEmail), {
       headers: { 'Content-Type': 'application/json' }
     });
-  }   
+  }
 
   getRecommendedTrains(): Observable<TrenInfo[]> {
     return this.http.get<TrenInfo[]>(`${this.baseUrl}api/GetRecomendedTrains`);
@@ -42,5 +42,17 @@ export class ApiService {
       'Content-Type': 'application/json'
     };
     return this.http.delete(`${this.baseUrl}api/DeleteTrain/${idViaje}`, { headers });
+  }
+
+  getViajeById(idViaje: number): Observable<TrenInfoExtended> {
+    return this.http.get<TrenInfoExtended>(`${this.baseUrl}api/viajes/${idViaje}`);
+  }
+
+  updateViaje(id: number, viaje: TrenInfoExtended, token: string): Observable<TrenInfoExtended> {
+    const headers = {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    };
+    return this.http.put<TrenInfoExtended>(`${this.baseUrl}api/viajes/${id}`, viaje, { headers });
   }
 }

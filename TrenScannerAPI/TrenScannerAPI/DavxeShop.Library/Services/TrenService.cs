@@ -1,6 +1,8 @@
 ﻿using DavxeShop.Library.Services.Interfaces;
 using DavxeShop.Models;
+using DavxeShop.Persistance;
 using DavxeShop.Persistance.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DavxeShop.Library.Services
 {
@@ -53,6 +55,13 @@ namespace DavxeShop.Library.Services
             return allTrains;
         }
 
+        public UpdateTren GetTrainById(int id)
+        {
+            var getTrainById = _trenDboHelper.GetTrainById(id);
+
+            return getTrainById;
+        }
+
         public bool DeleteTren(string username, int id_viaje)
         {
             var userInDb = _trenDboHelper.GetUserDb(username);
@@ -83,6 +92,11 @@ namespace DavxeShop.Library.Services
             {
                 return false;
             }
+        }
+
+        public bool UpdateTren(int id, UpdateTren trenInfo)
+        {
+            return _trenDboHelper.UpdateTren(id, trenInfo);
         }
     }
 }

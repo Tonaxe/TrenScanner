@@ -13,5 +13,7 @@ namespace DavxeShop.Persistance.Interfaces
         List<ViajeSimplificado> GetAllTrenes2();
         ViajesDbData GetTrenById(int id_viaje);
         void DeleteTren(int id_viaje);
+        bool UpdateTren(int id, UpdateTren trenInfo);
+        UpdateTren GetTrainById(int id);
     }
 }
