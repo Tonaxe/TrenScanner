@@ -11,5 +11,7 @@ namespace DavxeShop.Persistance.Interfaces
         bool AddUser(UserData userData);
         List<ViajesDbData> GetAllTrenes();
         List<ViajeSimplificado> GetAllTrenes2();
+        ViajesDbData GetTrenById(int id_viaje);
+        void DeleteTren(int id_viaje);
     }
 }

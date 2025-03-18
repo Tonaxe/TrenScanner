@@ -98,5 +98,21 @@ namespace DavxeShop.Persistance
 
             return allTrains;
         }
+
+        public ViajesDbData GetTrenById(int id_viaje)
+        {
+            return _context.Viajes
+                .Include(v => v.Ruta)
+                .Include(v => v.Tarifas)
+                .FirstOrDefault(v => v.id_viaje == id_viaje);
+        }
+
+        public void DeleteTren(int id_viaje)
+        {
+            var tren = _context.Viajes.FirstOrDefault(v => v.id_viaje == id_viaje);
+
+            _context.Viajes.Remove(tren);
+            _context.SaveChanges();
+        }
     }
 }

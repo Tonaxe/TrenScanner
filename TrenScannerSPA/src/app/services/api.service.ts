@@ -35,4 +35,12 @@ export class ApiService {
   getAllTrains(): Observable<TrenInfoExtended[]> {
     return this.http.get<TrenInfoExtended[]>(`${this.baseUrl}api/AllTrains`);
   }
+
+  deleteTrain(idViaje: number, token: string): Observable<any> {
+    const headers = {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    };
+    return this.http.delete(`${this.baseUrl}api/DeleteTrain/${idViaje}`, { headers });
+  }
 }

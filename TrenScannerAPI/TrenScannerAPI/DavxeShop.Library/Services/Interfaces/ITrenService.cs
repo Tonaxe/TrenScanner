@@ -6,5 +6,6 @@ namespace DavxeShop.Library.Services.Interfaces
     {
         List<ViajeBasico> GetRecomendedTrains();
         List<ViajeSimplificado> GetAllTrains();
+        bool DeleteTren(string username, int id_viaje);
     }
 }

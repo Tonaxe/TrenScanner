@@ -1,6 +1,8 @@
 ﻿using DavxeShop.Library.Services.Interfaces;
 using DavxeShop.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace DavxeShop.Api.Controller
 {
@@ -103,6 +105,42 @@ namespace DavxeShop.Api.Controller
             }
 
             return Ok(allTrains);
+        }
+
+        [HttpDelete("DeleteTrain/{id_viaje}")]
+        public IActionResult DeleteTrain(int id_viaje, [FromHeader] string Authorization)
+        {
+            if (string.IsNullOrEmpty(Authorization) || !Authorization.StartsWith("Bearer "))
+            {
+                return Unauthorized("Token no proporcionado o inválido.");
+            }
+
+            var token = Authorization.Substring("Bearer ".Length).Trim();
+
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+            if (jwtToken == null)
+            {
+                return Unauthorized("Token inválido.");
+            }
+
+            var username = jwtToken?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrEmpty(username))
+            {
+                return Unauthorized("No se pudo obtener el usuario desde el token.");
+            }
+
+            bool result = _trenService.DeleteTren(username, id_viaje);
+
+            if (result)
+            {
+                return Ok("Tren eliminado correctamente.");
+            }
+            else
+            {
+                return BadRequest("Error al eliminar el tren.");
+            }
         }
     }
 }

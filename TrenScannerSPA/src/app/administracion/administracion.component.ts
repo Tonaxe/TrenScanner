@@ -54,7 +54,20 @@ export class AdministracionComponent implements OnInit {
   }
 
   deleteTren(id_viaje: number): void {
-    console.log('Eliminar tren con ID:', id_viaje);
+    const token = sessionStorage.getItem('token');
+
+    if (!token) {
+      console.error('No hay token de autenticación');
+      return;
+    }
+
+    this.apiService.deleteTrain(id_viaje, token).subscribe(
+      (res) => {
+        window.location.reload();
+      },
+      (error) => {
+      }
+    );
   }
 
   editTren(id_viaje: number): void {

@@ -52,5 +52,37 @@ namespace DavxeShop.Library.Services
 
             return allTrains;
         }
+
+        public bool DeleteTren(string username, int id_viaje)
+        {
+            var userInDb = _trenDboHelper.GetUserDb(username);
+            if (userInDb == null)
+            {
+                return false;
+            }
+
+            var tren = _trenDboHelper.GetTrenById(id_viaje);
+            if (tren == null)
+            {
+                return false;
+            }
+
+            if (userInDb.Rol != 1)
+            {
+                return false;
+            }
+
+            try
+            {
+                _trenDboHelper.DeleteTren(id_viaje);
+                _trenDboHelper.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
